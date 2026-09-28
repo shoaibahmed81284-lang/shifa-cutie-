@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#ff6fae">
+
+<title>For My Cutie 💗</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html,body{
+    width:100%;
+    min-height:100%;
+}
+
+body{
+    font-family:"Poppins",Arial,sans-serif;
+    overflow:hidden;
+    color:#672d4b;
+
+    background:
+        radial-gradient(circle at 15% 15%,rgba(255,177,213,.65),transparent 30%),
+        radial-gradient(circle at 85% 85%,rgba(205,177,255,.6),transparent 32%),
+        linear-gradient(135deg,#fff5fa,#f8f0ff);
+
+    position:relative;
+}
+
+/* ================= BACKGROUND ================= */
+
+.background-glow{
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    overflow:hidden;
+}
+
+.glow{
+    position:absolute;
+    width:250px;
+    height:250px;
+    border-radius:50%;
+    filter:blur(70px);
+    opacity:.35;
+    animation:glowMove 8s ease-in-out infinite alternate;
+}
+
+.glow.one{
+    background:#ff8fbd;
+    top:-80px;
+    left:-80px;
+}
+
+.glow.two{
+    background:#b995ff;
+    right:-80px;
+    bottom:-80px;
+    animation-delay:2s;
+}
+
+@keyframes glowMove{
+    from{transform:translate(0,0) scale(1);}
+    to{transform:translate(30px,-20px) scale(1.15);}
+}
+
+/* ================= HEARTS ================= */
+
+.hearts{
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    overflow:hidden;
+    z-index:1;
+}
+
+.heart{
+    position:absolute;
+    bottom:-60px;
+    animation:floatHeart linear forwards;
+    opacity:0;
+}
+
+@keyframes floatHeart{
+    0%{
+        transform:translateY(0) rotate(0deg) scale(.6);
+        opacity:0;
+    }
+
+    15%{
+        opacity:.75;
+    }
+
+    100%{
+        transform:translateY(-115vh) rotate(360deg) scale(1);
+        opacity:0;
+    }
+}
+
+/* ================= PAGE ================= */
+
+.page{
+    position:fixed;
+    inset:0;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    padding:18px;
+
+    z-index:5;
+
+    transition:
+        opacity .7s ease,
+        transform .7s ease;
+}
+
+.hidden{
+    display:none;
+}
+
+.fadeOut{
+    opacity:0;
+    transform:scale(.94);
+}
+
+.fadeIn{
+    animation:pageIn .8s ease forwards;
+}
+
+@keyframes pageIn{
+    from{
+        opacity:0;
+        transform:translateY(25px) scale(.94);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0) scale(1);
+    }
+}
+
+/* ================= CARD ================= */
+
+.card{
+    width:min(94vw,540px);
+    max-height:92vh;
+
+    overflow-y:auto;
+
+    padding:38px 28px;
+
+    text-align:center;
+
+    border-radius:34px;
+
+    background:rgba(255,255,255,.68);
+
+    border:1px solid rgba(255,255,255,.9);
+
+    box-shadow:
+        0 30px 90px rgba(105,43,84,.18),
+        0 8px 25px rgba(255,100,160,.08),
+        inset 0 1px 0 rgba(255,255,255,.95);
+
+    backdrop-filter:blur(22px);
+    -webkit-backdrop-filter:blur(22px);
+
+    animation:cardAppear .9s ease;
+}
+
+.card::-webkit-scrollbar{
+    width:4px;
+}
+
+.card::-webkit-scrollbar-thumb{
+    background:#efb4cf;
+    border-radius:20px;
+}
+
+@keyframes cardAppear{
+    from{
+        opacity:0;
+        transform:translateY(35px) scale(.94);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0) scale(1);
+    }
+}
+
+/* ================= TOP ICON ================= */
+
+.love-icon{
+    width:72px;
+    height:72px;
+
+    margin:0 auto 15px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:50%;
+
+    font-size:34px;
+
+    background:
+        linear-gradient(135deg,#fff,#ffe0ed);
+
+    box-shadow:
+        0 10px 30px rgba(225,75,133,.2);
+
+    animation:heartBeat 2s ease-in-out infinite;
+}
+
+@keyframes heartBeat{
+    0%,100%{transform:scale(1);}
+    50%{transform:scale(1.08);}
+}
+
+/* ================= TEXT ================= */
+
+.small-title{
+    font-size:11px;
+    letter-spacing:3px;
+    text-transform:uppercase;
+
+    color:#c05787;
+    font-weight:700;
+}
+
+h1{
+    font-family:Georgia,serif;
+
+    font-size:clamp(38px,10vw,56px);
+
+    line-height:1.05;
+
+    margin:12px 0 14px;
+
+    color:#8b315f;
+
+    text-shadow:
+        0 4px 20px rgba(139,49,95,.1);
+}
+
+.subtitle{
+    max-width:430px;
+
+    margin:0 auto 24px;
+
+    font-size:15px;
+    line-height:1.8;
+
+    color:#76536a;
+}
+
+.question{
+    font-family:Georgia,serif;
+
+    font-size:clamp(25px,7vw,35px);
+
+    line-height:1.3;
+
+    font-weight:bold;
+
+    color:#70264c;
+
+    margin:25px 0 28px;
+}
+
+/* ================= BUTTON AREA ================= */
+
+.button-area{
+    min-height:105px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    gap:14px;
+
+    position:relative;
+}
+
+button{
+    border:none;
+
+    cursor:pointer;
+
+    font-family:Arial,sans-serif;
+
+    font-size:15px;
+    font-weight:bold;
+
+    border-radius:50px;
+
+    padding:15px 25px;
+
+    transition:
+        transform .25s ease,
+        box-shadow .25s ease;
+
+    -webkit-tap-highlight-color:transparent;
+}
+
+#yesBtn{
+    color:white;
+
+    background:
+        linear-gradient(135deg,#ff70a9,#d93f7c);
+
+    box-shadow:
+        0 12px 30px rgba(217,63,124,.3);
+}
+
+#yesBtn:hover{
+    transform:scale(1.08);
+    box-shadow:
+        0 16px 35px rgba(217,63,124,.4);
+}
+
+#noBtn{
+    color:#a34d78;
+
+    background:white;
+
+    border:2px solid #f1c9dc;
+
+    position:relative;
+
+    z-index:20;
+}
+
+#noBtn:hover{
+    background:#fff8fb;
+}
+
+.no-message{
+    min-height:25px;
+
+    margin-top:3px;
+
+    font-size:13px;
+
+    color:#b34d7d;
+
+    font-weight:bold;
+}
+
+/* ================= MUSIC ================= */
+
+.music-btn{
+    margin-top:22px;
+
+    padding:11px 20px;
+
+    font-size:13px;
+
+    color:#9b3f70;
+
+    background:rgba(255,255,255,.8);
+
+    border:1px solid #efc4da;
+
+    box-shadow:0 6px 18px rgba(120,50,90,.08);
+}
+
+.music-btn:hover{
+    transform:translateY(-2px);
+}
+
+/* ================= DIVIDER ================= */
+
+.divider{
+    display:flex;
+    align-items:center;
+    gap:10px;
+
+    margin:24px 0 20px;
+
+    color:#d27b9f;
+
+    font-size:13px;
+}
+
+.divider::before,
+.divider::after{
+    content:"";
+
+    flex:1;
+
+    height:1px;
+
+    background:linear-gradient(
+        90deg,
+        transparent,
+        #edbfd4,
+        transparent
+    );
+}
+
+/* ================= PROMISE ================= */
+
+.promise{
+    text-align:left;
+
+    font-size:15px;
+
+    line-height:1.9;
+
+    color:#674058;
+}
+
+.promise p{
+    margin-bottom:16px;
+}
+
+.highlight{
+    color:#b33270;
+    font-weight:bold;
+}
+
+.quote{
+    margin:22px 0;
+
+    padding:19px;
+
+    border-left:4px solid #e85b96;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,225,239,.7),
+            rgba(255,240,247,.45)
+        );
+
+    border-radius:14px;
+
+    font-family:Georgia,serif;
+
+    font-style:italic;
+
+    line-height:1.7;
+
+    color:#87355e;
+
+    box-shadow:
+        0 8px 25px rgba(190,70,120,.06);
+}
+
+/* ================= SIGNATURE ================= */
+
+.signature{
+    margin-top:25px;
+
+    font-family:Georgia,serif;
+
+    font-size:21px;
+
+    line-height:1.6;
+
+    color:#8b315f;
+}
+
+.signature small{
+    font-family:Arial,sans-serif;
+
+    font-size:11px;
+
+    letter-spacing:2px;
+
+    text-transform:uppercase;
+
+    color:#bc7195;
+}
+
+/* ================= CONFETTI ================= */
+
+.confetti{
+    position:fixed;
+
+    width:8px;
+    height:14px;
+
+    top:-20px;
+
+    z-index:100;
+
+    animation:confettiFall 3.5s linear forwards;
+}
+
+@keyframes confettiFall{
+    to{
+        transform:
+            translateY(110vh)
+            rotate(720deg);
+
+        opacity:0;
+    }
+}
+
+/* ================= SUCCESS HEART ================= */
+
+.success-heart{
+    font-size:42px;
+
+    margin-bottom:8px;
+
+    animation:successPop .7s cubic-bezier(.17,.67,.35,1.4);
+}
+
+@keyframes successPop{
+    0%{
+        transform:scale(0);
+        opacity:0;
+    }
+
+    100%{
+        transform:scale(1);
+        opacity:1;
+    }
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:500px){
+
+    .page{
+        padding:12px;
+    }
+
+    .card{
+        width:96vw;
+
+        max-height:94vh;
+
+        padding:30px 19px;
+
+        border-radius:28px;
+    }
+
+    .love-icon{
+        width:64px;
+        height:64px;
+
+        font-size:30px;
+    }
+
+    .subtitle{
+        font-size:14px;
+        line-height:1.7;
+    }
+
+    .promise{
+        font-size:14px;
+        line-height:1.85;
+    }
+
+    button{
+        padding:14px 20px;
+        font-size:14px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- BACKGROUND -->
+<div class="background-glow">
+    <div class="glow one"></div>
+    <div class="glow two"></div>
+</div>
+
+<!-- FLOATING HEARTS -->
+<div class="hearts" id="hearts"></div>
+
+
+<!-- ================= FIRST PAGE ================= -->
+
+<section class="page" id="firstPage">
+
+    <div class="card">
+
+        <div class="love-icon">
+            💗
+        </div>
+
+        <div class="small-title">
+            A little question from Shoaib 💌
+        </div>
+
+        <h1>
+            Hey Cutie! 🌸
+        </h1>
+
+        <p class="subtitle">
+            Some people slowly become a beautiful part of
+            our everyday life...
+            and somehow, everything feels a little happier
+            when they're around. ✨
+        </p>
+
+        <div class="divider">
+            ♡
+        </div>
+
+        <div class="question">
+            Will you be my bestie? 🥹💕
+        </div>
+
+        <div class="button-area">
+
+            <button id="yesBtn">
+                YES 💗
+            </button>
+
+            <button id="noBtn">
+                NO 🙈
+            </button>
+
+        </div>
+
+        <div
+            class="no-message"
+            id="noMessage">
+        </div>
+
+        <button
+            class="music-btn"
+            id="musicButton">
+            🎵 Friendship Vibes
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- ================= SECOND PAGE ================= -->
+
+<section
+    class="page hidden"
+    id="secondPage">
+
+    <div class="card">
+
+        <div class="success-heart">
+            💖
+        </div>
+
+        <div class="small-title">
+            A little promise from Shoaib 🌷
+        </div>
+
+        <h1>
+            You Said YES! 🥹❤️
+        </h1>
+
+        <div class="divider">
+            ✨
+        </div>
+
+        <div class="promise">
+
+            <p>
+                Cutie, I know this started with a simple
+                question, but for me,
+                <span class="highlight">
+                    your friendship means much more.
+                </span>
+            </p>
+
+            <p>
+                I promise I'll always try to be there for you —
+                not only when everything is going perfectly,
+                but especially when life gets difficult.
+            </p>
+
+            <p>
+                In your
+                <span class="highlight">ups</span>,
+                I'll celebrate your happiness with you.
+                And in your
+                <span class="highlight">downs</span>,
+                I'll remind you that you don't have to
+                face everything alone.
+            </p>
+
+            <div class="quote">
+                "I can't promise that every day will be perfect,
+                but I can promise that you'll always have a friend
+                who genuinely cares about you." 🤍
+            </div>
+
+            <p>
+                I'll listen to your random stories,
+                laugh at your stupid jokes,
+                tolerate your drama 😂,
+                celebrate your achievements,
+                and remind you of your worth whenever
+                you forget it.
+            </p>
+
+            <
